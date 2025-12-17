@@ -1,6 +1,4 @@
 import numpy as np
-import scipy as sp
-from sympy import *
 from matplotlib import pyplot as plt
 
 from .beam import Beam
@@ -192,13 +190,13 @@ class NumericalErrorAnalysis:
             # A reasonable default range (coarse -> fine)
             dt_list = [2e-2, 1e-2, 5e-3, 2.5e-3, 1.25e-3]
 
-        res_trap = self.temporal_convergence(
-            method="trapezoid",
-            dt_list=dt_list,
-            Tfinal=Tfinal,
-            dt_ref_factor=dt_ref_factor,
-            expected_order=2
-        )
+        # res_trap = self.temporal_convergence(
+        #     method="trapezoid",
+        #     dt_list=dt_list,
+        #     Tfinal=Tfinal,
+        #     dt_ref_factor=dt_ref_factor,
+        #     expected_order=2
+        # )
 
         res_be = self.temporal_convergence(
             method="backward_euler",
@@ -208,7 +206,7 @@ class NumericalErrorAnalysis:
             expected_order=1
         )
 
-        return res_trap, res_be
+        return res_be
 
     # -------------------------
     # Spatial convergence study (optional but often expected)

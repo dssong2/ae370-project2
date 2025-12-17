@@ -1,6 +1,4 @@
 import numpy as np
-import scipy as sp
-from sympy import *
 from matplotlib import pyplot as plt
 from matplotlib import animation
 
